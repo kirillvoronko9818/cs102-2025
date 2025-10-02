@@ -1,2 +1,4 @@
+"""Функция текст"""
 def text():
-    return message
+    """Функция выводит текст message"""
+    return "message"
