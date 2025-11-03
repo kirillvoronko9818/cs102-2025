@@ -1,6 +1,7 @@
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
     Encrypts plaintext using a Caesar cipher.
+
     >>> encrypt_caesar("PYTHON")
     'SBWKRQ'
     >>> encrypt_caesar("python")
@@ -11,13 +12,24 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ''
     """
     ciphertext = ""
-    # PUT YOUR CODE HERE
+    for i in range(len(plaintext)):
+        char = plaintext[i]
+        if char >= "A" and char <= "Z":
+            new_char = chr((ord(char) - ord("A") + shift) % 26 + ord("A"))
+            ciphertext = ciphertext + new_char
+        elif char >= "a" and char <= "z":
+            new_char = chr((ord(char) - ord("a") + shift) % 26 + ord("a"))
+            ciphertext = ciphertext + new_char
+        else:
+            ciphertext = ciphertext + char
+
     return ciphertext
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
     Decrypts a ciphertext using a Caesar cipher.
+
     >>> decrypt_caesar("SBWKRQ")
     'PYTHON'
     >>> decrypt_caesar("sbwkrq")
@@ -28,5 +40,15 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     ''
     """
     plaintext = ""
-    # PUT YOUR CODE HERE
+    for i in range(len(ciphertext)):
+        char = ciphertext[i]
+        if char >= "A" and char <= "Z":
+            original_char = chr((ord(char) - ord("A") - shift) % 26 + ord("A"))
+            plaintext = plaintext + original_char
+        elif char >= "a" and char <= "z":
+            original_char = chr((ord(char) - ord("a") - shift) % 26 + ord("a"))
+            plaintext = plaintext + original_char
+        else:
+            plaintext = plaintext + char
+
     return plaintext
