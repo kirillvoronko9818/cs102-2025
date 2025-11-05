@@ -1,6 +1,6 @@
 def encrypt_affine(plaintext, a, b):
     alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    n = len(alphabet)  # 33
+    n = len(alphabet)  # 33 буквы русского алфавита
 
     char_to_num = {char: idx for idx, char in enumerate(alphabet)}
 
