@@ -1,7 +1,6 @@
 def encrypt_affine(plaintext, a, b):
-    alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
     n = len(alphabet)  # 33
-
 
     char_to_num = {char: idx for idx, char in enumerate(alphabet)}
 
@@ -21,6 +20,4 @@ def encrypt_affine(plaintext, a, b):
         else:
             encrypted_text.append(char)
 
-    return ''.join(encrypted_text)
-
-
+    return "".join(encrypted_text)
