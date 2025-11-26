@@ -146,8 +146,21 @@ def solve(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.List[tp.List[str]]]:
 
 def check_solution(solution: tp.List[tp.List[str]]) -> bool:
     """ Если решение solution верно, то вернуть True, в противном случае False """
-    # TODO: Add doctests with bad puzzles
-    pass
+    valid_numbers = set(str(i) for i in range(1, 10))
+    for i in range(9):
+        if set(get_row(solution, (i,0))) != valid_numbers:
+            return False
+
+    for o in range(9):
+        if set(get_col(solution, (0, o))) != valid_numbers:
+            return False
+
+    for i in range(0, 9, 3):
+        for o in range(0, 9, 3):
+            if set(get_block(solution, (i,o))) != valid_numbers:
+                return False
+    return True                  
+
 
 
 def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
