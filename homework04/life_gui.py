@@ -1,6 +1,5 @@
 import pygame
 import pygame.locals as pl
-
 from life import GameOfLife
 from ui import UI
 
