@@ -46,9 +46,9 @@ class GUI(UI):
 
         while running:
             for event in pygame.event.get():
-                if event.type == QUIT:
+                if event.type == pl.QUIT:
                     running = False
-                if event.type == KEYDOWN and event.key == K_SPACE:
+                if event.type == pl.KEYDOWN and event.key == pl.K_SPACE:
                     self.paused = not self.paused
             if not self.paused and self.life.is_changing and not self.life.is_max_generations_exceeded:
                 self.life.step()
