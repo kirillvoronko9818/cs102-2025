@@ -38,7 +38,7 @@ class GUI(UI):
 
     def run(self) -> None:
         """Запустить"""
-        pygame.init()  # pylint: disable=no-member
+        pygame.init()  
         self.screen = pygame.display.set_mode((self.width, self.height))
         clock = pygame.time.Clock()
         pygame.display.set_caption("Game of Life")
@@ -59,7 +59,7 @@ class GUI(UI):
             pygame.display.flip()
             clock.tick(self.speed)
 
-        pygame.quit()  # pylint: disable=no-member
+        pygame.quit()
 
 
 if __name__ == "__main__":
