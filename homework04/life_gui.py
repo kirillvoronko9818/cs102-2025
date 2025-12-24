@@ -1,11 +1,13 @@
 import pygame
-from pygame.locals import *
+import pygame.locals as pl
 
 from life import GameOfLife
 from ui import UI
 
 
 class GUI(UI):
+    """Графический интерфейс для игры жизнь"""
+
     def __init__(self, life: GameOfLife, cell_size: int = 10, speed: int = 10) -> None:
         super().__init__(life)
         self.cell_size = cell_size
@@ -15,12 +17,14 @@ class GUI(UI):
         self.paused = False
 
     def draw_lines(self) -> None:
+        """Нарисовать линии"""
         for x in range(0, self.width, self.cell_size):
             pygame.draw.line(self.screen, pygame.Color("black"), (x, 0), (x, self.height))
         for y in range(0, self.height, self.cell_size):
             pygame.draw.line(self.screen, pygame.Color("black"), (0, y), (self.width, y))
 
     def draw_grid(self) -> None:
+        """Нарисовать сетку"""
         for row in range(self.life.rows):
             for col in range(self.life.cols):
                 x = col * self.cell_size
@@ -33,7 +37,8 @@ class GUI(UI):
                 pygame.draw.rect(self.screen, color, cell_rect)
 
     def run(self) -> None:
-        pygame.init()
+        """Запустить"""
+        pygame.init()  # pylint: disable=no-member
         self.screen = pygame.display.set_mode((self.width, self.height))
         clock = pygame.time.Clock()
         pygame.display.set_caption("Game of Life")
@@ -54,12 +59,10 @@ class GUI(UI):
             pygame.display.flip()
             clock.tick(self.speed)
 
-        pygame.quit()
+        pygame.quit()  # pylint: disable=no-member
 
 
 if __name__ == "__main__":
-    from life import GameOfLife
-
     game = GameOfLife(size=(20, 30), randomize=True)
     gui = GUI(game)
     gui.run()
