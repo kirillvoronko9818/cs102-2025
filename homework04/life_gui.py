@@ -38,7 +38,7 @@ class GUI(UI):
 
     def run(self) -> None:
         """Запустить"""
-        pygame.init()  
+        pygame.init()
         self.screen = pygame.display.set_mode((self.width, self.height))
         clock = pygame.time.Clock()
         pygame.display.set_caption("Game of Life")
