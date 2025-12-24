@@ -27,6 +27,7 @@ class GameOfLife:
         # Скорость протекания игры
         self.speed = speed
         self.grid = self.create_grid(randomize=True)
+
     def draw_lines(self) -> None:
         """Отрисовать сетку"""
         for x in range(0, self.width, self.cell_size):
